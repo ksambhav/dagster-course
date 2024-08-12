@@ -234,3 +234,5 @@ tmp**
 /data/outputs/manhattan_map.png
 /data/outputs/trips_by_week.csv
 /data/staging/manhattan_stats.geojson
+/data/raw/taxi_trips_2023-01.parquet
+/data/raw/taxi_trips_2023-02.parquet
