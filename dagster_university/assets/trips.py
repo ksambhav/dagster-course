@@ -1,6 +1,3 @@
-import os
-
-import duckdb
 import requests
 from dagster import asset
 from dagster_duckdb import DuckDBResource
@@ -27,9 +24,7 @@ def taxi_zones_file() -> None:
     """
       The raw CSV file for the taxi zones dataset. Sourced from the NYC Open Data portal.
     """
-    raw_taxi_zones = requests.get(
-        "https://data.cityofnewyork.us/api/views/755u-8jsi/rows.csv?accessType=DOWNLOAD"
-    )
+    raw_taxi_zones = requests.get("https://data.cityofnewyork.us/api/views/755u-8jsi/rows.csv?accessType=DOWNLOAD")
 
     with open(constants.TAXI_ZONES_FILE_PATH, "wb") as output_file:
         output_file.write(raw_taxi_zones.content)
@@ -39,7 +34,7 @@ def taxi_zones_file() -> None:
     deps=["taxi_trips_file"],
 )
 def taxi_trips(database: DuckDBResource) -> None:
-    sql_query = """
+    sql_query: str = """
         create or replace table taxi_trips as (
           select
             VendorID as vendor_id,
@@ -59,20 +54,25 @@ def taxi_trips(database: DuckDBResource) -> None:
     with database.get_connection() as conn:
         conn.execute(sql_query)
 
+
 @asset(
-    deps=["taxi_zones_file"]
+    deps=["taxi_zones_file"],
 )
-def taxi_zones() -> None:
-    sql_query = f"""
-        create or replace table zones as (
-            select
-                LocationID as zone_id,
-                zone,
-                borough,
-                the_geom as geometry
-            from '{constants.TAXI_ZONES_FILE_PATH}'
-        );
+def taxi_zones(database: DuckDBResource) -> None:
+    """
+      The raw taxi zones dataset, loaded into a DuckDB database.
     """
 
-    conn = duckdb.connect(os.getenv("DUCKDB_DATABASE"))
-    conn.execute(sql_query)
+    query = f"""
+      create or replace table zones as (
+        select
+          LocationID as zone_id,
+          zone,
+          borough,
+          the_geom as geometry
+        from '{constants.TAXI_ZONES_FILE_PATH}'
+      );
+    """
+
+    with database.get_connection() as conn:
+        conn.execute(query)
