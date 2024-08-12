@@ -7,8 +7,12 @@ from .schedules import trip_update_schedule, weekly_update_schedule
 from .sensors import adhoc_request_sensor
 
 trip_assets = load_assets_from_modules([trips])
-metric_assets = load_assets_from_modules([metrics])
-request_assets = load_assets_from_modules([requests])
+metric_assets = load_assets_from_modules([metrics],
+                                         group_name="metrics", )
+request_assets = load_assets_from_modules(
+    modules=[requests],
+    group_name="requests_group"
+)
 all_schedules = [trip_update_schedule, weekly_update_schedule]
 all_sensors = [adhoc_request_sensor]
 

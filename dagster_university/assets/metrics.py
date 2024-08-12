@@ -66,13 +66,10 @@ from ..partitions import weekly_partition
 
 @asset(
     deps=["taxi_trips"],
-    partitions_def=weekly_partition
+    partitions_def=weekly_partition,
+    description="The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week.The number of trips per week, aggregated by week."
 )
 def trips_by_week(context: AssetExecutionContext, database: DuckDBResource) -> None:
-    """
-      The number of trips per week, aggregated by week.
-    """
-
     period_to_fetch = context.partition_key
 
     # get all trips for the week
