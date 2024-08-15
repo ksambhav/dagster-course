@@ -1,0 +1,9 @@
+load_from:
+  - python_file:
+      relative_path: "my_code_location.py"
+      attribute: "defs"
+  - python_module:
+      module_name: dagster_university
+  - python_module:
+      module_name: another_code_location
+#      working_directory: another_code_location
