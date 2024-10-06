@@ -20,9 +20,13 @@ create user dagster with password 'password';
 ```commandline
 grant all privileges on database my_dagster to dagster;
 ```
+```commandline
+ALTER DATABASE my_dagster OWNER TO dagster;
+```
 
 ```commandline
 psql -U dagster -d my_dagster
 ```
-
-helm upgrade --install my-dagster dagster/dagster -f k8s/values.yaml
+```commandline
+helm upgrade --install my-dagster dagster/dagster -n dagster -f k8s/values.yaml
+```
