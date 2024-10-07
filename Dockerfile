@@ -23,4 +23,5 @@ EXPOSE 3030
 # Get example pipelines
 COPY ./dagster_university/ dagster_university/
 COPY ./data data/
-#ENTRYPOINT ["dagster", "api", "grpc", "-p", "3030"]
+COPY /wb_etl wb_etl/
+COPY workspace.yaml workspace.yaml
