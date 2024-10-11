@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "dagster-course"
+version = "0.1.0"
+description = ""
+authors = ["Kumar Sambhav Jain <kumar.sambhav.jain@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+geopandas = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
