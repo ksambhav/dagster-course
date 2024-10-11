@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+dagster = "1.8.10"
+
+dagster-cloud = "*"
+dagster-duckdb = "*"
+geopandas = "*"
+kaleido = "*"
+pandas = "*"
+plotly = "*"
+shapely = "*"
+pyarrow = "*"
+
+[dev-packages]
+dagster-webserver = "1.8.10"
+pytest = "*"
+[requires]
+python_version = "3.12"

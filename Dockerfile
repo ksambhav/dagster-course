@@ -21,5 +21,5 @@ RUN pip install \
 EXPOSE 3030
 COPY ./dagster_university/ dagster_university/
 COPY ./data data/
-COPY /wb_etl wb_etl/
 COPY workspace.yaml workspace.yaml
+ENTRYPOINT ["dagster","dev"]
