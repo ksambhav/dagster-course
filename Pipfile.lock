@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "7e3366d3eedd02be9a9f6f86c3a5222109091b449b7658477d4f12129203bc1c"
+            "sha256": "550f14059276c5d59a556af176522cc54f64422bc19cee9d232d105a5b4f5b8d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -1052,6 +1052,22 @@
             ],
             "markers": "python_version >= '3.8'",
             "version": "==2.18.0"
+        },
+        "pygresql": {
+            "hashes": [
+                "sha256:04c085b16b7e53eac8cfc76ca160a91963f2e7361b8c5d064a45ae68564bcc3a",
+                "sha256:0eadc3a1e322369225f48a05a70197e60c9123e7b84a0df9a217f05a65685951",
+                "sha256:41ada07c89a6c55a79fdea590e506fac05293a2fba0ed3d24ebfe1a2693622fd",
+                "sha256:4720e5d72e5c00484d420c1fcc1cc446475beba2dd97edaeae57e9dfe45af696",
+                "sha256:925f83b5cc2fd73545f0f6ae0d94d0b97f419b8fc895815bf18a8ef0143295b3",
+                "sha256:a5c27546dcb21cfa51b45b2031a63a754164466976365d7a7583a7cd53f2293b",
+                "sha256:ba7e1ff03c6cd2f89da7ac94a77c5c872019a9b2d8663eae77fe7ee6277236af",
+                "sha256:da5f16032f21c2692e124c3bccd747c163710cb6c2ff75f98ffb5b00ca95f0cc",
+                "sha256:f8c43fd86d1f9235380717682161a7f69dcd873a880dfaab3e2bdb67899cea69"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.7'",
+            "version": "==6.0.1"
         },
         "pyjwt": {
             "extras": [
